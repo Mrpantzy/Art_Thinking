@@ -150,6 +150,12 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .news li small{display:block;color:var(--fg2);font-size:12px}
 .news .show{display:block;padding:8px 12px 4px;font-weight:600;color:var(--fg2)}
 .news .show:hover{color:var(--fg)}
+.cg{padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cg-in{display:flex;gap:12px;align-items:center;flex:1;min-width:220px}
+.cg-tx{font-size:14px;line-height:1.4}
+.cg-tx small{display:block;color:var(--fg2);font-size:12px}
+.cg-btn{border:1px solid var(--blue);color:var(--blue);border-radius:999px;padding:6px 16px;font-weight:600;white-space:nowrap}
+.cg-btn:hover{background:var(--blue-soft);box-shadow:inset 0 0 0 1px var(--blue)}
 .qr-c{display:flex;gap:12px;align-items:center;padding:12px;margin-bottom:8px}
 .qr-c img{flex:none;border-radius:4px;background:#fff;padding:3px}
 .qr-c b{display:block;font-size:14px}
@@ -680,6 +686,7 @@ const JOBS=[
  {t:"Reservoir Rightsizing Lead",c:"Environment Agency (England)",l:"England · Hybrid",m:84,col:"#3f7a5a",d:"Deliver a measured reduction in reservoir levels ahead of the hosepipe-ban season."},
  {t:"Chief Fuel Officer",c:"Overgrown Holdings",l:"Los Angeles, California · Remote",m:81,col:"#8a6d3b",d:"Source, stockpile and position dry fuel across multiple regions."}];
 const NOTIFS=[
+ {p:"eq",t:"Congratulate <b>Earth Quake</b> on a magnitude 5.6 milestone in Alaska 🎉",w:"1h",post:"eq1",cg:1},
  {p:"wild",t:"<b>Wild Fire</b> commented on your post: “Always a pleasure to collaborate. Your conditions set the stage perfectly.”",w:"5m",post:"do1"},
  {p:"hh",t:"<b>Hank Hurricane</b> commented on your post: “Great numbers! Though I’d argue it’s easier to make an impact when you bring water.”",w:"22m",post:"do1"},
  {p:"tye",t:"<b>Tye Phoon</b> started following you",w:"1h",prof:"tye-phoon"},
@@ -736,12 +743,19 @@ function render(){
   <div class="start-opts"><button type="button" data-act="compose:video"><svg class="i" viewBox="0 0 24 24" style="fill:#378fe9"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-9 12V8l6 4z"/></svg>Video</button>
   <button type="button" data-act="compose:photo"><svg class="i" viewBox="0 0 24 24" style="fill:#5f9b41"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-1 12H6l3-4 2 2.5 3-4z"/></svg>Photo</button>
   <button type="button" data-act="compose:article"><svg class="i" viewBox="0 0 24 24" style="fill:#e16745"><path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"/></svg>Write article</button></div></div>
+  <section class="card cg"><div class="cg-in">${avatar("eq",48)}<div class="cg-tx"><b>Earth Quake</b> hit a new milestone: a magnitude 5.6 in Alaska 🎉<small>Celebrate with your network · 1h</small></div></div><button type="button" class="cg-btn" data-act="congrats:eq1">👏 Congratulate Earth Quake</button></section>
   <div class="sortbar"><hr><button type="button" data-act="sort" data-pop>Sort by: <b>${st.sort==="top"?"Top":"Recent"} ▾</b></button></div><div id="feed" class="col"></div>`;
   feedHTML();
  } else {
   c.innerHTML=PAGES[st.view]();
   if(st.view==="messaging"){const t=$("#msg-th");t&&(t.scrollTop=t.scrollHeight)}
  }
+}
+function congrats(id){
+ showPost(id);
+ const i=$("#in-"+id);if(!i)return;
+ i.value="Congratulations on the magnitude 5.6 milestone, Earth Quake! 🎉";
+ i.dispatchEvent(new Event("input",{bubbles:true}));i.focus({preventScroll:true});
 }
 function showPost(id){
  st.view="home";st.hidden&&st.hidden.delete(id);$("#q").value="";$("#q").dataset.f="";st.open.add(id);render();
@@ -821,13 +835,14 @@ const ACT={
  sendto(k){toast("Sent to "+PPL[k].n+".")},
  react(id){reactModal(id)},
  person(id){personModal(id)},
+ congrats(id){congrats(id)},
  connect(id,b){st.conn.has(id)?st.conn.delete(id):st.conn.add(id);if(st.view==="network")render();else if($(".ov"))personModal(id)},
  followp(id){st.follow.has(id)?st.follow.delete(id):st.follow.add(id);personModal(id);sugHTML();keep(()=>{$("#feed")&&feedHTML()})},
  accept(id){st.conn.add("acc"+id);toast("You are now connected to "+PPL[id].n+".");render()},
  ignore(id){st.ignored.add(id);render()},
  job(i){const j=JOBS[i];modal(j.t,`<div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">${sq(j.c,j.col)}<div><b>${esc(j.c)}</b><div style="color:var(--fg2);font-size:12px">${esc(j.l)} · ${j.m}% profile match</div></div></div><p style="margin:0;line-height:1.6">${esc(j.d)}</p>`,`<button type="button" class="btn-p" data-act="apply:${i}:m">${st.applied.has(i)?"✓ Applied":"Easy Apply"}</button>`)},
  apply(i,b,arg){st.applied.add(+i);toast("Application sent.");if(arg==="m")ACT.job(+i);else render()},
- notif(i){const n=NOTIFS[+i];closeModal();if(n.post)showPost(n.post);else if(n.prof)openProfile(n.prof);else if(n.view)go(n.view)},
+ notif(i){const n=NOTIFS[+i];closeModal();if(n.cg)congrats(n.post);else if(n.post)showPost(n.post);else if(n.prof)openProfile(n.prof);else if(n.view)go(n.view)},
  showpost(id){closeModal();showPost(id)},
  thread(k){st.thread=k;render()},
  msgto(k){closeModal();if(!MSG0[k]&&!st.msgs[k])st.msgs[k]=[];st.thread=k;go("messaging")},
