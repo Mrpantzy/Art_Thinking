@@ -150,6 +150,68 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .news li small{display:block;color:var(--fg2);font-size:12px}
 .news .show{display:block;padding:8px 12px 4px;font-weight:600;color:var(--fg2)}
 .news .show:hover{color:var(--fg)}
+/* jobs */
+.jsearch{padding:12px 16px}
+.jfields{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:8px}
+@media (max-width:480px){.jfields{grid-template-columns:minmax(0,1fr)}}
+.jf{display:flex;align-items:center;gap:6px;background:var(--search);border-radius:4px;padding:0 10px;min-width:0}
+.jf input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:inherit;padding:9px 0;outline:none}
+.jchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.jchip,.jcoll{border:1px solid var(--fg2);border-radius:999px;padding:5px 12px;font-weight:600;color:var(--fg2);font-size:14px}
+.jchip:hover,.jcoll:hover{background:var(--hover);box-shadow:inset 0 0 0 1px var(--fg2)}
+.jchip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.jlist{padding:0}
+.jhead{padding:16px 16px 4px}
+.jhead h2{font-size:20px;font-weight:600;margin:0 0 4px}
+.jhead .sub{color:var(--fg2);font-size:12px;margin:0 0 4px}
+.jrow{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--hair)}
+.jrow:hover{background:var(--hover)}
+.jopen{flex:1;min-width:0;display:flex;flex-direction:column;text-align:left;gap:1px}
+.jt{color:var(--blue);font-weight:600;font-size:16px;line-height:1.3}
+.jopen:hover .jt{text-decoration:underline}
+.jverified{font-style:normal;font-size:11px;color:var(--fg2);border:1px solid var(--fg2);border-radius:50%;padding:0 3px;vertical-align:2px}
+.jc{font-size:14px}
+.jl,.jsal,.jconn,.jmeta{font-size:13px;color:var(--fg2);line-height:1.4}
+.jsal{color:var(--fg)}
+.jmeta{font-size:12px;margin-top:4px}
+.jgreen{color:var(--green);font-weight:600}
+.jok{color:var(--green);font-weight:600}
+.jeasy i,.jin{font-style:normal;background:var(--blue);color:var(--card);border-radius:2px;font-weight:700;font-size:10px;padding:0 3px;margin-right:2px}
+.jin{font-size:11px;background:#fff;color:#0a66c2}
+.jtools{display:flex;flex-direction:column;gap:2px;flex:none}
+.jempty{padding:16px;color:var(--fg2)}
+.jundo{display:block;width:100%;padding:12px;border-top:1px solid var(--hair);color:var(--fg2);font-weight:600}
+.jundo:hover{background:var(--hover)}
+.jrecent{display:block;width:100%;text-align:left;padding:8px 0;color:var(--fg);border-top:1px solid var(--hair)}
+.jrecent:first-of-type{border-top:0}
+.jrecent:hover{color:var(--blue);text-decoration:underline}
+.jdet{padding:16px 20px 20px}
+.jback{color:var(--fg2);font-weight:600;margin-bottom:12px}
+.jback:hover{color:var(--blue)}
+.jco{display:flex;align-items:center;gap:8px}
+.jco .sq{width:32px;height:32px;font-size:12px}
+.jco.big .sq{width:56px;height:56px;font-size:16px}
+.jco.big{gap:12px}
+.jco.big div{flex:1}
+.jco small{display:block;color:var(--fg2);font-size:12px}
+.jtitle{font-size:24px;font-weight:600;line-height:1.25;margin:12px 0 6px}
+.jsub{color:var(--fg2);font-size:14px;margin:4px 0}
+.jpills{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.jpills span{background:var(--bubble);border-radius:4px;padding:4px 8px;font-size:13px;font-weight:600}
+.jbtns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.jbig{font-size:16px;padding:8px 20px;border-radius:999px}
+.jhire{display:flex;gap:12px;align-items:center}
+.jhire>div{flex:1;min-width:0}
+.jhire small{display:block;color:var(--fg2);font-size:12px;line-height:1.35}
+.jdeg{color:var(--fg2);font-size:13px}
+.jsk{display:flex;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+.jsk span{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;background:var(--bubble);color:var(--fg2);flex:none}
+.jsk.ok span{background:var(--green);color:#fff}
+.jbar{height:8px;border-radius:4px;background:var(--bubble);overflow:hidden;margin:12px 0 4px}
+.jbar i{display:block;height:100%;background:var(--green)}
+.jabout p{line-height:1.5;margin:8px 0}
+.jabout h3{font-size:15px;font-weight:600;margin:16px 0 4px}
+.jul{margin:4px 0;padding-left:20px;line-height:1.6}
 .cg{padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .cg-in{display:flex;gap:12px;align-items:center;flex:1;min-width:220px}
 .cg-tx{font-size:14px;line-height:1.4}
@@ -593,7 +655,7 @@ const BIO={
  fa:["Third-generation farmer @ Dustfield Family Farm","Cracked Earth Agricultural College · Diploma, Crop Rotation",1204],
  ia:["Claims Adjuster @ Act of God Mutual","Fine Print Business School · MSc, Exclusion Clauses",9877]};
 for(const k in BIO){const [job,edu,fol]=BIO[k];Object.assign(PPL[k],{job,edu,fol})}
-Object.assign(st,{view:"home",sort:"top",saved:new Set(),applied:new Set(),conn:new Set(),ignored:new Set(),join:new Set(),read:false,thread:"wild",newsMore:false,premium:false,msgs:{},n:0});
+Object.assign(st,{view:"home",sort:"top",saved:new Set(),applied:new Set(),conn:new Set(),ignored:new Set(),join:new Set(),read:false,job:null,jq:"",jf:new Set(),jsaved:new Set(),jhide:new Set(),jcof:new Set(),thread:"wild",newsMore:false,premium:false,msgs:{},n:0});
 const NOW=()=>new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
 const ageMin=s=>{const m=/^(\d+)\s*([mhdw])/.exec(s);if(!m)return 0;return +m[1]*({m:1,h:60,d:1440,w:10080}[m[2]])};
 const imgSrc=k=>IMG[k]||k;
@@ -622,6 +684,7 @@ window.addEventListener("scroll",closePop,{passive:true});
 
 /* ---- generic info pages ---- */
 const INFO={
+ "Sustainability":"0 jobs found. Nobody in this network is hiring for sustainability. Try “Resource Reduction” instead.",
  "Talent Solutions":"Find, attract and recruit talent. Open roles currently trending: Regional Disruption Manager, Reservoir Rightsizing Lead.",
  "Sales Solutions":"Grow your pipeline of stakeholders you have not asked. Includes unsolicited outreach at scale.",
  "Post a job":"Reach 3rd+ connections fast. Required fields: location, seniority and tolerance for sudden relocation.",
@@ -670,6 +733,7 @@ function publish(){
 
 /* ---- views ---- */
 function go(v){
+ if(v!=="jobs")st.job=null;
  st.view=v;if(v==="notifs")st.read=true;render();
  const b=$("#badge");if(b)b.hidden=st.read;
  if(v!=="home")window.scrollTo({top:0});
@@ -679,12 +743,76 @@ function connBtn(id){const on=st.conn.has(id);return `<button type="button" clas
 function sq(name,c){return `<span class="sq" style="background:${c}">${ini(name)}</span>`}
 
 const JOBS=[
- {t:"Regional Disruption Manager",c:"Pacific Ring of Fire",l:"Tokyo, Japan · On-site",m:92,col:"#b0413e",d:"Lead large-scale regional change with little or no notice. Strong plate alignment preferred."},
- {t:"Infrastructure Transformation Lead",c:"San Andreas Fault",l:"San Francisco Bay Area · Hybrid",m:89,col:"#5b7f95",d:"Own the stress-testing of bridges, buildings and expectations. Hybrid: some shaking in person."},
- {t:"Senior Seismic Consultant",c:"Anatolian Plate Partners",l:"Istanbul · Hybrid",m:87,col:"#7b6a58",d:"Advise stakeholders on risk they were hoping to defer."},
- {t:"Head of Evaporation Strategy",c:"Mojave Holdings",l:"Southwestern United States · On-site",m:96,col:"#a0623a",d:"Drive record evaporation rates across reservoirs. Prior experience with the Sahara a plus."},
- {t:"Reservoir Rightsizing Lead",c:"Environment Agency (England)",l:"England · Hybrid",m:84,col:"#3f7a5a",d:"Deliver a measured reduction in reservoir levels ahead of the hosepipe-ban season."},
- {t:"Chief Fuel Officer",c:"Overgrown Holdings",l:"Los Angeles, California · Remote",m:81,col:"#8a6d3b",d:"Source, stockpile and position dry fuel across multiple regions."}];
+ {t:"Head of Evaporation Strategy",c:"Mojave Holdings",col:"#a0623a",l:"Southwestern United States",w:"On-site",e:"Full-time",lv:"Director",sal:"$210K/yr – $290K/yr",m:96,ago:"2 days ago",apps:41,promo:1,easy:1,act:1,hire:"sa",conn:"Your former employer · 3 connections work here",
+  d:"Mojave Holdings is looking for a Head of Evaporation Strategy to turn surplus water into measurable efficiency across our reservoir portfolio.",
+  resp:["Drive record evaporation rates across 11+ reservoirs","Partner with heatwaves to hit quarterly drawdown targets","Report “future water” KPIs to the board every quarter"],
+  req:["10+ years in long-term resource reduction","Proven record of failed rainy seasons","Comfortable working in 45°C+ conditions"],
+  perks:["Unlimited sunshine","Zero humidity, guaranteed","Equity in Dust Bowl Ventures"],
+  sk:[["Evaporation Strategy",1],["Resource Reduction",1],["Stakeholder Dehydration",1],["Aridity Management",1],["Cloud Avoidance",0]],
+  co:{ind:"Land & Water Reduction",size:"5,001-10,000 employees",fol:884201,about:"We turn surplus water into efficiency across the American Southwest. Proudly reducing reservoirs since 1998."}},
+ {t:"Reservoir Rightsizing Lead",c:"National Reservoir Rightsizing Agency",col:"#3f7a5a",l:"England, United Kingdom",w:"Hybrid",e:"Full-time",lv:"Mid-Senior level",sal:"£95K/yr – £120K/yr",m:84,ago:"1 week ago",apps:112,easy:1,
+  d:"Deliver a measured reduction in reservoir levels ahead of the hosepipe-ban season, working closely with the sun and a nation of brown lawns.",
+  resp:["Own the national drawdown roadmap","Coordinate hosepipe-ban rollouts region by region","Brief the press on why it is “just a dry spell”"],
+  req:["Experience with temperate markets that expect rain","Strong stakeholder management (gardeners, farmers, water companies)","Calm under public pressure"],
+  perks:["Hybrid: 3 days in the field, 2 days in the sun","Generous summer (it never ends)","Pension, sadly also drying up"],
+  sk:[["Resource Reduction",1],["Reservoir Rightsizing",1],["Crisis Communications",0]],
+  co:{ind:"Government Administration",size:"1,001-5,000 employees",fol:211450,about:"A fictional public body keeping England’s reservoirs lean and its lawns brown."}},
+ {t:"Regional Disruption Manager",c:"Pacific Ring of Fire",col:"#b0413e",l:"Tokyo, Japan",w:"On-site",e:"Full-time",lv:"Director",sal:"¥22M/yr – ¥30M/yr",m:92,ago:"3 days ago",apps:76,act:1,hire:"tp",conn:"Earth Quake worked here 1850–1926",
+  d:"Lead large-scale regional change with little or no notice across the world’s most active business corridor.",
+  resp:["Run multi-plate transformation programmes","Coordinate with volcano and tsunami partners on follow-on impact","Keep 40,000 km of fault lines aligned"],
+  req:["Proven experience with sudden, high-impact delivery","Strong plate alignment","Fluent in Richter"],
+  perks:["Relocation across the Pacific","Constant movement","Aftershock bonus scheme"],
+  sk:[["Large-Scale Events",1],["Infrastructure Disruption",0],["Cross-Plate Collaboration",0]],
+  co:{ind:"Geological Services",size:"10,001+ employees",fol:3920114,about:"A horseshoe-shaped network of 452 volcanoes and countless faults. Always hiring."}},
+ {t:"Infrastructure Transformation Lead",c:"San Andreas Fault",col:"#5b7f95",l:"San Francisco Bay Area",w:"Hybrid",e:"Full-time",lv:"Mid-Senior level",sal:"$180K/yr – $240K/yr",m:89,ago:"5 days ago",apps:203,easy:1,hire:"af",conn:"Tectonic Plates and 2 others work here",
+  d:"Own the stress-testing of bridges, buildings and expectations. Hybrid: some shaking in person.",
+  resp:["Stress-test critical infrastructure on an unpredictable schedule","Partner with Aftershock on follow-up engagement","Keep the Bay Area humble"],
+  req:["5+ years of slip-strike experience","Comfort with long quiet periods followed by sudden delivery","Bonus: experience with The Big One"],
+  perks:["Ocean views (getting closer every year)","Flexible start dates","Stock options in Continental Drift"],
+  sk:[["Infrastructure Disruption",0],["Stakeholder Shaking",0],["Thought Leadership",1]],
+  co:{ind:"Geological Services",size:"1,001-5,000 employees",fol:1408733,about:"1,200 km of strategic displacement along the California coast."}},
+ {t:"Senior Loss Generation Partner",c:"Act of God Mutual",col:"#a0623a",l:"United States",w:"Remote",e:"Full-time",lv:"Mid-Senior level",sal:"$140K/yr – $175K/yr",m:88,ago:"1 day ago",apps:18,easy:1,act:1,hire:"ia",conn:"Iris Insurer works here",
+  d:"Help us justify next year’s premiums. We partner with the industry’s most consistent natural forces to keep risk models exciting.",
+  resp:["Deliver steady, insurable losses quarter after quarter","Stay inside the policy exclusions we wrote for you","Join quarterly premium-setting workshops"],
+  req:["Track record of measurable regional impact","Comfort with fine print","Discretion"],
+  perks:["Fully remote","Claims-free bonus (for us)","Annual offsite at a reinsurance retreat"],
+  sk:[["Resource Reduction",1],["Crop Failure Analytics",1],["Risk Modelling",0]],
+  co:{ind:"Insurance",size:"501-1,000 employees",fol:96002,about:"Insuring everything except the things that actually happen."}},
+ {t:"Fuel Procurement Manager",c:"Overgrown Holdings",col:"#8a6d3b",l:"Los Angeles, California",w:"Remote",e:"Seasonal",lv:"Mid-Senior level",sal:"$120K/yr – $160K/yr",m:81,ago:"4 days ago",apps:58,easy:1,hire:"db",conn:"Wild Fire is a key client",
+  d:"Source, stockpile and position dry fuel across multiple regions ahead of peak season.",
+  resp:["Build dry-brush inventory across 7 counties","Partner with Santa Ana Winds Consulting on distribution","Report fuel-readiness weekly to Wild Fire"],
+  req:["Experience with drought-stressed supply chains","Deep network in underbrush","Strong forecasting (heat, wind, humidity)"],
+  perks:["Seasonal: June to November","Commission on every hectare","Free kindling"],
+  sk:[["Aridity Management",1],["Evaporation Strategy",1],["Supply Chain",0]],
+  co:{ind:"Land & Terrain Services",size:"201-500 employees",fol:412880,about:"Keeping landscapes overgrown, dry and ready since 1926."}},
+ {t:"Wind Acceleration Associate",c:"Santa Ana Winds Consulting",col:"#7a5ea8",l:"Southern California",w:"Hybrid",e:"Contract",lv:"Associate",sal:"$95/hr",m:78,ago:"6 days ago",apps:34,hire:"sa",conn:"Santa Ana Winds is the hiring manager",
+  d:"Join the firm behind the region’s strongest tailwinds. Help clients go further, faster.",
+  resp:["Channel offshore gusts through canyon corridors","Support senior partners on high-profile fire seasons","Keep humidity below 10%"],
+  req:["Experience in downslope dynamics","Comfortable with 100 km/h workdays","Team player (with fire)"],
+  perks:["Paid travel through mountain passes","Autumn-heavy schedule","Mentorship from Santa Ana"],
+  sk:[["Evaporation Strategy",1],["Thought Leadership",1],["Wind Strategy",0]],
+  co:{ind:"Management Consulting",size:"51-200 employees",fol:1912044,about:"Strategic tailwinds for ambitious disruptors."}},
+ {t:"VP, Coastal Market Entry",c:"Atlantic Basin Partners",col:"#3a6ea5",l:"Miami, Florida",w:"On-site",e:"Seasonal",lv:"Executive",sal:"$250K/yr – $320K/yr",m:74,ago:"2 weeks ago",apps:301,promo:1,hire:"hh",conn:"Tsu Nami follows this company",
+  d:"Lead our June-to-November push into coastal markets. Category 5 thinking required.",
+  resp:["Plan landfall strategy across the Caribbean and Gulf","Own storm-surge performance metrics","Co-present at the Hurricane Season Kickoff Summit"],
+  req:["Experience bringing water (unlike some applicants)","Comfort with being named by committee","Keynote-ready"],
+  perks:["Warm-water allowance","Six months off every year","Executive retreat in the eye of the storm"],
+  sk:[["Thought Leadership",1],["Coastal Disruption",0],["Water Delivery",0]],
+  co:{ind:"Weather Services",size:"1,001-5,000 employees",fol:2311560,about:"The Atlantic’s premier partnership for high-impact coastal growth."}},
+ {t:"Head of Pressure Release",c:"Eruption Labs",col:"#c2410c",l:"Reykjavík, Iceland",w:"On-site",e:"Full-time",lv:"Director",sal:"€160K/yr – €210K/yr",m:71,ago:"3 weeks ago",apps:12,hire:"vc",
+  d:"Build our pressure-release function from the ground up. Literally.",
+  resp:["Manage magma pipeline readiness","Coordinate ash-cloud communications with airlines","Grow our island portfolio"],
+  req:["Background in geothermal or explosive growth","Comfort with long dormant periods","Heat tolerance above 1,000°C"],
+  perks:["Hot springs on site","Volcanic-island equity","Free flights (when the airspace is open)"],
+  sk:[["Thought Leadership",1],["Explosive Growth",0]],
+  co:{ind:"Geological Services",size:"11-50 employees",fol:1408977,about:"Making a big impact since the Pleistocene."}},
+ {t:"Founding Engineer, Rotational Systems",c:"Vortex Labs",col:"#5b7f95",l:"Oklahoma City, Oklahoma",w:"On-site",e:"Full-time",lv:"Entry level",sal:"$130K/yr + 2% equity",m:69,ago:"1 month ago",apps:9,easy:1,hire:"tt",conn:"Terry Tornado is the founder",
+  d:"Early-stage startup spinning up innovation across Tornado Alley. Move fast, touch down, move on.",
+  resp:["Build our first funnel-cloud prototype","Ship weekly (spring is our busy season)","Help define the culture: chaotic, rotational, fun"],
+  req:["Strong fundamentals in rotation","Startup mindset","Okay with trailer-park field testing"],
+  perks:["Equity","Snacks","Storm-chaser community"],
+  sk:[["Rapid Scaling",0],["Thought Leadership",1]],
+  co:{ind:"Technology, Information and Weather",size:"11-50 employees",fol:1126390,about:"Spinning up innovation. Backed by Low Pressure Ventures."}}];
 const NOTIFS=[
  {p:"eq",t:"Congratulate <b>Earth Quake</b> on a magnitude 5.6 milestone in Alaska 🎉",w:"1h",post:"eq1",cg:1},
  {p:"wild",t:"<b>Wild Fire</b> commented on your post: “Always a pleasure to collaborate. Your conditions set the stage perfectly.”",w:"5m",post:"do1"},
@@ -722,8 +850,22 @@ const PAGES={
   <section class="card pg"><h2>Invitations</h2>${inv.length?inv.map(i=>row(i,`<button type="button" class="btn-g" data-act="ignore:${i}">Ignore</button><button type="button" class="btn-s" data-act="accept:${i}">Accept</button>`)).join(""):'<p class="sub">No pending invitations.</p>'}</section>
   <section class="card pg"><h2>People you may know</h2><p class="sub">Based on your profile and your school, the University of Global Warming</p>
    <div class="pgrid">${pymk.map(i=>{const p=PPL[i];return `<div class="pcard">${avatar(i,72)}${nameBtn(i,"nmx")}</button><small>${esc(p.h)}</small>${connBtn(i)}</div>`}).join("")}</div></section>`},
- jobs(){return `<section class="card pg"><h2>Jobs picked for you</h2><p class="sub">Based on your profile and search history</p>
-  ${JOBS.map((j,i)=>`<div class="rowi">${sq(j.c,j.col)}<button type="button" class="open" data-act="job:${i}"><span class="tx"><b>${esc(j.t)}</b><small>${esc(j.c)}</small><small>${esc(j.l)} · ${j.m}% profile match</small></span></button><div class="go"><button type="button" class="btn-s" data-act="apply:${i}" aria-pressed="${st.applied.has(i)}">${st.applied.has(i)?"✓ Applied":"Easy Apply"}</button></div></div>`).join("")}</section>`},
+ jobs(){
+  if(st.job!=null)return jobDetail(st.job);
+  const q=(st.jq||"").toLowerCase(),f=st.jf;
+  const list=JOBS.map((j,i)=>[j,i]).filter(([j,i])=>!st.jhide.has(i)
+   &&(!q||(j.t+" "+j.c+" "+j.l).toLowerCase().includes(q))
+   &&(!f.has("Easy Apply")||j.easy)&&(!f.has("Remote")||j.w==="Remote")&&(!f.has("Hybrid")||j.w==="Hybrid")&&(!f.has("On-site")||j.w==="On-site")
+   &&(!f.has("Director+")||/Director|Executive/.test(j.lv))&&(!f.has("Saved")||st.jsaved.has(i)));
+  const chip=n=>`<button type="button" class="jchip" data-act="jfilter:${n}" aria-pressed="${f.has(n)}">${n}</button>`;
+  return `<section class="card jsearch"><div class="jfields"><label class="jf"><span>🔍</span><input id="jq" type="search" placeholder="Title, skill or company" value="${esc(st.jq||"")}" aria-label="Search jobs"></label><label class="jf"><span>📍</span><input id="jl" type="text" placeholder="City, state, or zip code" value="Worldwide" aria-label="Location"></label><button type="button" class="btn-p" data-act="jsearch">Search</button></div>
+  <div class="jchips">${["Easy Apply","Remote","Hybrid","On-site","Director+","Saved"].map(chip).join("")}</div></section>
+  <section class="card jlist"><div class="jhead"><h2>Top job picks for you</h2><p class="sub">Based on your profile, preferences and activity like applies, searches and saves</p><p class="sub"><b>${list.length}</b> result${list.length===1?"":"s"}</p></div>
+  ${list.length?list.map(([j,i])=>`<div class="jrow">${sq(j.c,j.col)}<button type="button" class="jopen" data-act="job:${i}"><span class="jt">${esc(j.t)}${j.act?' <i class="jverified" title="Verified">✓</i>':""}</span><span class="jc">${esc(j.c)}</span><span class="jl">${esc(j.l)} (${j.w})</span><span class="jsal">${esc(j.sal)}</span>${j.conn?`<span class="jconn">👥 ${esc(j.conn)}</span>`:""}<span class="jmeta">${st.applied.has(i)?'<b class="jok">Applied</b> · ':""}${j.act?'<b class="jgreen">Actively recruiting</b> · ':""}${j.promo?"Promoted · ":""}${esc(j.ago)}${j.easy?' · <span class="jeasy"><i>in</i> Easy Apply</span>':""}</span></button>
+   <div class="jtools"><button type="button" class="icon-btn" data-act="jsave:${i}" aria-pressed="${st.jsaved.has(i)}" aria-label="Save job">${st.jsaved.has(i)?"🔖":"☆"}</button><button type="button" class="icon-btn" data-act="jhide:${i}" aria-label="Dismiss job">✕</button></div></div>`).join(""):'<p class="jempty">No jobs match these filters. Try removing one.</p>'}
+  ${st.jhide.size?`<button type="button" class="jundo" data-act="jundo">Show ${st.jhide.size} dismissed job${st.jhide.size===1?"":"s"}</button>`:""}</section>
+  <section class="card pg"><h2>Recent job searches</h2>${["Drought Director · Remote","Evaporation · Horn of Africa","Resource Reduction · Worldwide"].map(r=>`<button type="button" class="jrecent" data-act="jrecent:${r.split(" · ")[0]}">🕘 ${r}</button>`).join("")}</section>
+  <section class="card pg"><h2>Explore with job collections</h2><div class="jchips">${["Easy Apply","Remote","Hybrid","Director+"].map(n=>`<button type="button" class="jcoll" data-act="jfilter:${n}">${n}</button>`).join("")}<button type="button" class="jcoll" data-act="info:Sustainability">Sustainability 🙃</button></div></section>`},
  notifs(){return `<section class="card" style="overflow:hidden"><div class="pg" style="padding-bottom:8px"><h2>Notifications</h2></div>
   ${NOTIFS.map((n,i)=>`<button type="button" class="nrow2 ${i<4&&!st.read?"unread":""}" data-act="notif:${i}">${avatar(n.p,48).replace(/<button[^>]*>|<\/button>/g,"")}<span class="tx">${n.t}<small>${n.w}</small></span>${i<4&&!st.read?'<i class="dot"></i>':""}</button>`).join("")}</section>`},
  messaging(){
@@ -756,6 +898,26 @@ function congrats(id){
  const i=$("#in-"+id);if(!i)return;
  i.value="Congratulations on the magnitude 5.6 milestone, Earth Quake! 🎉";
  i.dispatchEvent(new Event("input",{bubbles:true}));i.focus({preventScroll:true});
+}
+function jobDetail(i){
+ const j=JOBS[i],ap=st.applied.has(i),sv=st.jsaved.has(i),h=j.hire&&PPL[j.hire],hit=j.sk.filter(x=>x[1]).length;
+ const li=a=>`<ul class="jul">${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+ return `<section class="card jdet"><button type="button" class="jback" data-act="jback">← Back to jobs</button>
+ <div class="jco">${sq(j.c,j.col)}<b>${esc(j.c)}</b></div>
+ <h1 class="jtitle">${esc(j.t)}</h1>
+ <p class="jsub">${esc(j.l)} · ${esc(j.ago)} · <b class="${ap?"jok":""}">${fmt(j.apps+(ap?1:0))} applicants</b></p>
+ <div class="jpills"><span>💰 ${esc(j.sal)}</span><span>🏢 ${esc(j.w)}</span><span>🕒 ${esc(j.e)}</span><span>📈 ${esc(j.lv)}</span></div>
+ ${j.act?'<p class="jsub"><b class="jgreen">Actively recruiting</b>'+(j.promo?" · Promoted by hirer":"")+"</p>":""}
+ <div class="jbtns"><button type="button" class="btn-p jbig" data-act="apply:${i}" ${ap?"disabled":""}>${ap?"✓ Applied":j.easy?'<i class="jin">in</i> Easy Apply':"Apply ↗"}</button><button type="button" class="btn-s jbig" data-act="jsave:${i}" aria-pressed="${sv}">${sv?"Saved":"Save"}</button></div>
+ </section>
+ ${h?`<section class="card pg"><h2>Meet the hiring team</h2><div class="jhire">${avatar(j.hire,56)}<div><b>${esc(h.n)}</b> <span class="jdeg">• ${h.deg||"3rd+"}</span><small>${esc(h.h)}</small><small>Job poster</small></div><button type="button" class="btn-s" data-act="msgto:${j.hire}">Message</button></div></section>`:""}
+ <section class="card pg jmatch"><h2>How your profile matches</h2><p class="sub">${hit} of ${j.sk.length} skills match your profile. You may be a good fit.</p>
+ ${j.sk.map(([n,ok])=>`<div class="jsk ${ok?"ok":""}"><span>${ok?"✓":"✕"}</span>${esc(n)}</div>`).join("")}
+ <div class="jbar"><i style="width:${j.m}%"></i></div><p class="sub">${j.m}% profile match · Top applicant</p></section>
+ <section class="card pg jabout"><h2>About the job</h2><p>${esc(j.d)}</p>
+ <h3>What you’ll do</h3>${li(j.resp)}<h3>What we’re looking for</h3>${li(j.req)}<h3>Benefits</h3>${li(j.perks)}</section>
+ <section class="card pg"><h2>About the company</h2><div class="jco big">${sq(j.c,j.col)}<div><b>${esc(j.c)}</b><small>${fmt(j.co.fol)} followers</small></div><button type="button" class="btn-s" data-act="jfollowco:${i}" aria-pressed="${st.jcof.has(i)}">${st.jcof.has(i)?"✓ Following":"+ Follow"}</button></div>
+ <p class="jsub">${esc(j.co.ind)} · ${esc(j.co.size)}</p><p>${esc(j.co.about)}</p></section>`;
 }
 function showPost(id){
  st.view="home";st.hidden&&st.hidden.delete(id);$("#q").value="";$("#q").dataset.f="";st.open.add(id);render();
@@ -840,8 +1002,16 @@ const ACT={
  followp(id){st.follow.has(id)?st.follow.delete(id):st.follow.add(id);personModal(id);sugHTML();keep(()=>{$("#feed")&&feedHTML()})},
  accept(id){st.conn.add("acc"+id);toast("You are now connected to "+PPL[id].n+".");render()},
  ignore(id){st.ignored.add(id);render()},
- job(i){const j=JOBS[i];modal(j.t,`<div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">${sq(j.c,j.col)}<div><b>${esc(j.c)}</b><div style="color:var(--fg2);font-size:12px">${esc(j.l)} · ${j.m}% profile match</div></div></div><p style="margin:0;line-height:1.6">${esc(j.d)}</p>`,`<button type="button" class="btn-p" data-act="apply:${i}:m">${st.applied.has(i)?"✓ Applied":"Easy Apply"}</button>`)},
- apply(i,b,arg){st.applied.add(+i);toast("Application sent.");if(arg==="m")ACT.job(+i);else render()},
+ job(i){st.job=+i;go("jobs")},
+ jback(){st.job=null;render();window.scrollTo({top:0})},
+ jfilter(n){st.job=null;st.jf.has(n)?st.jf.delete(n):st.jf.add(n);go("jobs")},
+ jsearch(){st.jq=($("#jq")||{}).value||"";render()},
+ jrecent(q){st.jq=q==="Drought Director"?"Director":q==="Evaporation"?"Evaporation":"Resource";st.job=null;go("jobs")},
+ jsave(i){i=+i;st.jsaved.has(i)?st.jsaved.delete(i):st.jsaved.add(i);toast(st.jsaved.has(i)?"Job saved.":"Removed from saved jobs.");render()},
+ jhide(i){st.jhide.add(+i);toast("Job dismissed. We won’t show it again.");render()},
+ jundo(){st.jhide.clear();render()},
+ jfollowco(i){i=+i;st.jcof.has(i)?st.jcof.delete(i):st.jcof.add(i);render()},
+ apply(i){st.applied.add(+i);toast("Application sent to "+JOBS[+i].c+".");render()},
  notif(i){const n=NOTIFS[+i];closeModal();if(n.cg)congrats(n.post);else if(n.post)showPost(n.post);else if(n.prof)openProfile(n.prof);else if(n.view)go(n.view)},
  showpost(id){closeModal();showPost(id)},
  thread(k){st.thread=k;render()},
@@ -864,6 +1034,7 @@ function ext(t){
 function keep(fn){const y=window.scrollY;fn();window.scrollTo(0,y)}
 document.addEventListener("input",e=>{ if(e.target.matches(".cm-in input")){const s=e.target.parentElement.querySelector(".cm-send");s.hidden=!e.target.value.trim()} });
 document.addEventListener("keydown",e=>{
+ if(e.key==="Enter"&&e.target.id==="jq"){ACT.jsearch();return}
  if(e.key==="Enter"&&e.target.matches(".cm-in input")){e.preventDefault();e.target.parentElement.querySelector(".cm-send").click()}
  if(e.key==="Escape"){if($("#ov"))closeModal();else if($(".pop"))closePop();else if(!$("#viewer").hidden)closeProfile()}
 });
