@@ -90,6 +90,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .icon-btn{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--fg2)}
 .icon-btn:hover{background:var(--hover)}
 .p-text{padding:8px 16px 0;font-size:14px;line-height:1.43;white-space:pre-line;overflow-wrap:anywhere}
+.p-title{font-weight:600;font-size:15px}
 .p-text.clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .p-more{padding:0 16px;color:var(--fg2);font-weight:600;margin-top:2px;display:block}
 .p-more:hover{color:var(--blue);text-decoration:underline}
@@ -310,7 +311,7 @@ button.rx:hover span:last-child{text-decoration:underline;color:var(--blue)}
       <div class="me-cover" id="me-cover"></div>
       <img class="me-av" id="me-av" alt="Dr. Ought" width="72" height="72">
       <a class="me-name" href="#dr-ought" data-open="dr-ought">Dr. Ought</a>
-      <p class="me-head">Senior Resource Reduction Lead at Horn of Africa Region | MSc, Atmospheric Disruption @ University of Global Warming | Doing More With Less Water</p>
+      <p class="me-head">Senior Resource Reduction Lead at Horn of Africa Region | Doing More With Less Water 🏜️</p>
       <button type="button" class="me-stat" data-act="viewers"><span>Profile viewers<small>Mostly farmers</small></span><b>3,610,447</b></button>
       <button type="button" class="me-stat" data-act="analytics"><span>Post impressions<small>View all analytics</small></span><b>21,908,230</b></button>
       <button type="button" class="me-prem" data-act="premium">Strengthen your profile with an AI writing assistant<span>▣ Try Premium for $0</span></button>
@@ -370,10 +371,12 @@ const PPL={
  af:{n:"Aftershock",h:"Follow-up Engagement Specialist",c:"#9a5b5b",deg:"2nd"},
 };
 const PROF={"tye-phoon":"Tye Phoon","dr-ought":"Dr. Ought","wild-fire":"Wild Fire","tsu-nami":"Tsu Nami","earth-quake":"Earth Quake"};
+const head=o=>o.title||o.text.split("\n")[0];
 const TAG=t=>t.map(x=>"#"+x).join(" ");
 const POSTS=[
  {id:"wf1",by:"wild",t:"1h",follow:1,rx:["like","heart","bulb"],likes:48213,cm:3102,rp:1874,
-  text:"Dear Network 🔥\nI’m incredibly proud to reflect on the impact of my 2026 Gironde Expansion Programme, delivered across southwestern France in close collaboration with heatwaves, drought and shifting winds 🤝\nWith approximately 42,000 hectares affected, more than 250,000 people temporarily displaced and over 240 homes destroyed, this initiative set a new benchmark for rapid territorial transformation, emergency mobilisation and large-scale disruption.\nTogether, we accelerated innovation across:\n🔥 Landscape restructuring\n🏠 Residential portfolio reduction\n🚒 Emergency-response coordination\n✈️ Aerial firefighting operations\n🏕️ Temporary accommodation solutions\n🌫️ Cross-border air-quality management\nWhat made this programme truly exceptional was the strength of our ecosystem. By combining my ability to scale rapidly with extreme weather conditions and dry vegetation, we delivered impact at an unprecedented speed.\nThe greatest measure of disruption is not only what disappears in the moment, but what communities are forced to rebuild in response.\nProud to have challenged traditional assumptions about land management, tested regional resilience and created new opportunities for the emergency-services sector.\nThis is what becomes possible when environmental pressure meets operational momentum. 🌍",
+   title:"42,000 Hectares. One Summer. Zero Regrets. 🔥",
+   text:"Dear Network,\nProud to wrap up my 2026 Gironde Expansion Programme across southwestern France, delivered with heatwaves, drought and shifting winds 🤝\n📍 ~42,000 hectares transformed\n🏠 240+ homes removed from the portfolio\n🚶 250,000+ people temporarily relocated\nWhen environmental pressure meets operational momentum, anything is possible. 🌍",
   tags:["Wildfire","GirondeExpansion","CrisisManagement","ClimateImpact","Resilience","EmergencyResponse","Innovation","Sustainability","Transformation","Leadership","Disruption","StrategicGrowth"],
   th:[
    {p:"sa",t:"Proud mentor moment. You really took the direction I gave you and ran with it. Quickly. 🌬️🔥",l:2114,w:"2h"},
@@ -381,7 +384,8 @@ const POSTS=[
    {p:"hh",t:"Impressive scale for a land-based operation. You’re welcome to visit the coast anytime.",l:96,w:"1h"},
    {p:"ought",t:"Gironde-level conditions are exactly what I’ve been building towards. Our dry-season partnership keeps delivering. Let’s align on Q4. ☀️",l:1204,w:"45m"}]},
  {id:"eq1",by:"eq",t:"1h",follow:1,rx:["like"],likes:2,cm:5,rp:0,img:"eqpost",
-  text:"A little shaky start to the day 🌍\nAlaska got another reminder today that I’m still very much active.\nA 5.6 magnitude earthquake hit around 43 km NNW of Lake Minchumina at 11:07 UTC, at a relatively shallow depth of 4.5 km.\nThankfully, no confirmed reports of major damage or casualties so far.\nJust another day doing what I do best — keeping everyone on their toes.\nStay safe out there 🤝",
+   title:"Still Very Much Active 🌍",
+   text:"Alaska got another reminder today.\nA magnitude 5.6 hit 43 km NNW of Lake Minchumina at 11:07 UTC, just 4.5 km deep.\nNo confirmed reports of major damage so far. Just keeping everyone on their toes. 🤝",
   tags:["Earthquake","Alaska","SeismicActivity","NaturalDisasters"],src:"Illustrative image, not a photograph of the Alaska earthquake.",
   th:[
    {p:"tsu",t:"Congrats! 🌊 Let me know if you’d like to collaborate sometime.",l:14,w:"50m"},
@@ -389,67 +393,79 @@ const POSTS=[
    {p:"tp",t:"Proud of what we achieved together.",l:9,w:"40m"},
    {p:"lr",t:"My house literally collapsed.",l:127,w:"35m",re:[{p:"eq",t:"Thanks for sharing your perspective! Always valuable to hear from key stakeholders. 🙏",l:3,w:"30m"}]}]},
  {id:"do1",by:"ought",t:"2h • Edited",rx:["like","clap","bulb"],likes:64317,cm:4208,rp:2951,img:"somalia",tall:1,
-  text:"🌍 Humbled by the results of our latest quarter in Somalia. The near-total failure of the 2025 Deyr rains (October to December) has affected every corner of the region, delivering a level of impact our stakeholders could only dream of.\nNone of this happens alone. A huge thank you to my incredible team: heat, wind and some very committed absent clouds. ☀️\nKey highlights:\n📉 Rainfall: dramatically below target\n🌾 Harvests: successfully repositioned into “future harvests”\n🐄 Livestock portfolio: significantly rightsized\n🚚 Population mobility: communities empowered to explore new locations\nProud to have set a new benchmark for what a failed season can deliver. When the conditions align, the results speak for themselves.\nAgree? ♻️ Repost to help someone in your network do more with less.",
+   title:"My Best Quarter Yet: Somalia Edition ☀️",
+   text:"Humbled by our results in Somalia. The near-total failure of the 2025 Deyr rains delivered impact across the whole region.\n📉 Rainfall: well below target\n🌾 Harvests: repositioned as “future harvests”\n🐄 Livestock: rightsized\nThank you to my team: heat, wind and some very committed absent clouds.\nAgree? ♻️ Repost to help your network do more with less.",
   tags:["ResourceOptimisation","Somalia","Efficiency","DoingMoreWithLess","Humbled","Leadership"],
   th:[
    {p:"wild",t:"Always a pleasure to collaborate. Your conditions set the stage perfectly. Our synergy is unmatched. 🔥",l:3904,w:"1h"},
    {p:"hh",t:"Great numbers! Though I’d argue it’s easier to make an impact when you bring water. 🌀",l:733,w:"1h"},
    {p:"sa",t:"Strong tailwinds all quarter. No notes. 🌬️",l:288,w:"55m"}]},
  {id:"tn1",by:"tsu",t:"1h",follow:1,rx:["like"],likes:1,cm:1,rp:0,impr:"80 impressions",
-  text:"Dear Network 🌊\nI’m incredibly proud to reflect on the impact of my Pacific Transformation programme following the 2011 Tohoku earthquake, delivered across approximately 2,000 kilometres of Japan’s Pacific coastline.\nThe future is fluid. The strongest organisations learn how to move with it.",
+   title:"The Future Is Fluid 🌊",
+   text:"Proud to reflect on my Pacific Transformation programme after the 2011 Tohoku earthquake, delivered across ~2,000 km of Japan’s Pacific coastline.\nThe strongest organisations learn how to move with it.",
   tags:["GlobalImpact","CoastalTransformation","StrategicDisruption","Leadership"],
   th:[{p:"eq",t:"Great to see more of us on here. Let’s get the whole fault line connected. 🌍",l:4,w:"30m"}]},
  {id:"tp1",by:"tye",t:"3h",follow:1,rx:["like"],likes:3,cm:2,rp:0,impr:"61 impressions",
-  text:"Looking back, I remember February 2026 as Gezani.\nOn 10 February, I made landfall near Toamasina, Madagascar’s second-largest city, with winds reaching approximately 250 km/h.\nThe resulting “operational disruption” was extensive:\nMore than 478,000 people affected\n59 lives lost. Over 20,800 people displaced. More than 102,000 homes damaged or destroyed. 761 schools affected. 30 health centres impacted. Damage across 29 districts. More than 382,000 people requiring urgent assistance.",
+   title:"Gezani: My February in Review 🌀",
+   text:"On 10 February, I made landfall near Toamasina, Madagascar, at around 250 km/h.\nThe “operational disruption” was extensive:\n478,000+ people affected. 59 lives lost.\n102,000+ homes damaged or destroyed. 761 schools affected.\nLooking back, I remember February 2026 as Gezani.",
   tags:[],
   th:[{p:"hh",t:"Respect the 250 km/h. I’ve had longer runs in the Atlantic, but welcome to the platform. 🌀",l:18,w:"2h"},
       {p:"tsu",t:"Peak season for both of us. Let’s coordinate Pacific operations. 🌊",l:7,w:"1h"}]},
  {id:"do2",by:"ought",t:"2h",rx:["like","bulb","heart"],likes:92640,cm:6775,rp:4102,img:"england",
-  text:"🇬🇧 Excited to announce my expansion into England. As of 30 July, the Environment Agency has half of England officially in drought.\nNot bad for a market most people associate with rain. 🌧️➡️🏜️\nWhy England?\n✅ Strong brand awareness\n✅ Excellent existing infrastructure (reservoirs, ready to be rightsized)\n✅ A population that has never once been prepared for this\nA heartfelt thank-you to the sun for opening doors, to the hosepipe ban for early adoption, and to the nation’s lawns for their quiet, brown-toned commitment to the cause.\nLooking forward to a long, dry and mutually beneficial partnership. ☀️",
+   title:"New Market Unlocked: England 🇬🇧",
+   text:"As of 30 July, the Environment Agency has half of England officially in drought. Not bad for a market famous for rain. 🌧️➡️🏜️\nWhy England?\n✅ Strong brand awareness\n✅ Reservoirs ready to be rightsized\n✅ A population never once prepared for this\nThank you to the sun, the hosepipe ban and the nation’s brown lawns. ☀️",
   tags:["England","Expansion","Drought","Growth","NewMarkets","Excited"],
   th:[
    {p:"sa",t:"Welcome to the family, England. Expect a steady breeze and no relief. 🌬️",l:1288,w:"1h"},
    {p:"tsu",t:"Inspiring to see someone commit so fully to the opposite of what I do. 🌊",l:412,w:"1h"},
    {p:"wild",t:"Brown lawns are the best kindling partners a firm could ask for. Let’s talk. 🔥",l:870,w:"40m"}]},
  {id:"eq2",by:"eq",t:"10h",follow:1,rx:["like"],likes:3,cm:1,rp:0,
-  text:"A little professional development update 🌏\nA magnitude 5.3 event was recorded 43 km SSE of Otorohanga, New Zealand, at a depth of 286 km.\nNot every big move needs to be visible on the surface. Sometimes your most important work happens deep behind the scenes. 💼",
+   title:"Deep Work Pays Off 💼",
+   text:"A magnitude 5.3 event, 43 km SSE of Otorohanga, New Zealand, 286 km down.\nNot every big move needs to be visible. Sometimes your best work happens deep behind the scenes.",
   tags:["Earthquake","DeepWork","ProfessionalGrowth"],src:"USGS event details · New Zealand · Fictional satire commentary; no damage or casualty claims.",
   th:[{p:"vc",t:"Deep work indeed. Mine’s mostly under the surface too. 🌋",l:6,w:"8h"}]},
  {id:"eq3",by:"eq",t:"12h",follow:1,rx:["like"],likes:4,cm:1,rp:0,
-  text:"Two opportunities. One very busy morning 🌊\nA magnitude 4.8 event was followed seconds later by a magnitude 5.1 event east of Safotu, Samoa.\nPeople keep asking how I manage multiple projects at once. The secret? Strong plate alignment and absolutely no work-life balance. 🤝",
+   title:"Two Projects, One Morning 🤝",
+   text:"A magnitude 4.8, then a 5.1 seconds later, east of Safotu, Samoa.\nPeople ask how I multitask. Strong plate alignment and absolutely no work-life balance.",
   tags:["Earthquake","Multitasking","Samoa"],src:"USGS event details · Samoa · Fictional satire commentary; no damage or casualty claims.",
   th:[{p:"tsu",t:"Two for one! I’d have sent a wave, but you were already shaking things up. 🌊",l:5,w:"11h"}]},
  {id:"do3",by:"ought",t:"1d",rx:["like","clap","bulb"],likes:64317,cm:4208,rp:2951,
-  text:"Thrilled to announce a new chapter. 🏜️\nAfter five consecutive seasons of sustained under-delivery by the rains, I’m proud to share that our Resource Reduction Programme has officially exceeded every target.\nLet that sink in. (It won’t. There’s nothing left to sink into.)\nWhen I started out, this region had water.\nToday, it has efficiency.\nSome key results:\n📉 Reservoir levels: down, consistently, quarter after quarter\n🌾 Arable land: successfully repositioned into “future arable land”\n☁️ Cloud partnerships: sadly, ghosted, but we remain open to dialogue\n🔥 Strategic synergy with heatwaves and wildfire: unprecedented\nWhat made this possible was one thing: consistency. While others chased short-term rainfall, I stayed the course. Quarter after quarter. Season after season. Drop after drop (well, not drop).\nA huge thank you to my incredible partners, Wild Fire, the Santa Ana winds and the Sun ☀️, who showed up every single day.\nTo the sceptics who said “this is unsustainable”: I respectfully point out that I have been sustaining it for years.\nAgree? ♻️ Repost to help someone in your network do more with less.",
+   title:"Five Seasons. Zero Rain. Every Target Hit. 🏜️",
+   text:"Thrilled to share that our Resource Reduction Programme has exceeded every target.\nWhen I started, this region had water. Today, it has efficiency.\n📉 Reservoirs: down, quarter after quarter\n☁️ Cloud partnerships: ghosted\n🔥 Synergy with heatwaves and Wild Fire: unprecedented\nTo the sceptics who called this unsustainable: I’ve been sustaining it for years.",
   tags:["ResourceOptimisation","Efficiency","DoingMoreWithLess","Leadership","Growth","Humbled","Grateful","Consistency"],
   th:[
    {p:"wild",t:"Always a pleasure to collaborate. Your conditions set the stage perfectly. Our synergy is unmatched. 🔥",l:3904,w:"22h"},
    {p:"hh",t:"Great numbers! Though I’d argue it’s easier to make an impact when you bring water. 🌀",l:733,w:"21h"},
    {p:"tsu",t:"Inspiring to see someone commit so fully to the opposite of what I do. 🌊",l:412,w:"20h"}]},
  {id:"eq4",by:"eq",t:"1d",follow:1,rx:["like","bulb"],likes:6,cm:1,rp:0,
-  text:"Remote work, taken to another level 🌍\nA magnitude 5.9 earthquake was recorded in the Fiji region at a depth of approximately 585 km.\nYou do not need to be seen to make an impact. Proud of this truly deep, behind-the-scenes collaboration.",
+   title:"Remote Work, Taken to Another Level 🌍",
+   text:"A magnitude 5.9 in the Fiji region, about 585 km deep.\nYou don’t need to be seen to make an impact.",
   tags:["Earthquake","RemoteWork","BehindTheScenes"],src:"USGS event details · Fiji region · Fictional satire commentary; no damage or casualty claims.",
   th:[{p:"ought",t:"585 km down is real commitment. Fully remote, zero water cooler. Respect. 🏜️",l:22,w:"23h"}]},
  {id:"wf2",by:"wild",t:"2d • Edited",follow:1,rx:["like","clap","heart"],likes:127904,cm:8611,rp:5230,
-  text:"Humbled and honoured to share some personal news. 🏆\nI’ve just been named #1 LinkedIn Top Voice in Rapid Territorial Transformation by the Global Disruption Forum.\n(Yes, I’m as surprised as you are. Actually, no. I’m not. I put in the work.)\n12 months ago, I was a small spark with a big dream.\nToday, I lead a 90,000-acre portfolio across 3 states and 2 countries.\nNo shortcuts.\nNo safety nets.\nJust fuel, oxygen and relentless heat.\nNone of this would have been possible without my incredible team:\n🌬️ The Santa Ana winds, my mentor and sponsor, who believed in me when nobody else would\n🌿 Dry Brush, my earliest investor, who always showed up with unreasonable amounts of fuel\n☀️ The Summer Heatwave, my co-founder in everything but legal documentation\n⚡ Dry Lightning, who always knows how to make a powerful first impression\nAnd to everyone who ever told me I was “too much”, “out of control” or “a danger to the public”: Thank you for the motivation. 🙏\nHere’s to the next chapter. The best is yet to burn. 🔥\nAgree? ♻️ Repost to help another disruptor in your network.\nP.S. We’re hiring! Looking for high-energy, fast-moving fuel in every region. DM me.",
+   title:"Named #1 Top Voice in Rapid Territorial Transformation 🏆",
+   text:"Humbled and honoured. (Actually, no. I put in the work.)\n12 months ago, I was a small spark with a big dream. Today, I lead a 90,000-acre portfolio across 3 states and 2 countries.\nThank you to my team:\n🌬️ Santa Ana Winds, my mentor\n🌿 Dry Brush, my earliest investor\n☀️ Summer Heatwave, my co-founder\nThe best is yet to burn. 🔥\nP.S. We’re hiring fast-moving fuel in every region.",
   tags:["Humbled","Grateful","TopVoice","Leadership","Growth","Disruption","Hiring","OpenToWork"],
   th:[
    {p:"db",t:"Thank you for the shoutout! Always happy to show up with fuel. Best ROI of my career. 🌿",l:3260,w:"2d"},
    {p:"hh",t:"Congratulations! Though I’d note my own numbers are still higher. Humbled by your ascent regardless. 🌀",l:912,w:"2d"},
    {p:"ought",t:"Doing more with less has always been my mantra too. Well deserved, Wild!",l:647,w:"2d"}]},
  {id:"do4",by:"ought",t:"5d • Edited",rx:["like","bulb","heart"],likes:92640,cm:6775,rp:4102,
-  text:"I got fired by a reservoir last week. 💧\nBest thing that ever happened to me.\nHere’s what it taught me about leadership: 🧵\n1️⃣ Don’t let a full cup define you. It’s all about perspective. And the cup is half-empty. Then a quarter-empty. Then, well.\n2️⃣ Embrace the gap. Where others see a shortage, I see a market opportunity.\n3️⃣ Stay humble. Stay hydrated. (Do as I say, not as I do.)\n4️⃣ Play the long game. Great drought is not built overnight. It takes seasons of focus and a complete absence of rain.\n5️⃣ Know your partners. Surround yourself with heat, wind and sunshine. Everything else will evaporate.\n6️⃣ Do more with less. Always less. Then even less than that.\nWhen the reservoir let me go, it told me I had “taken everything from the team.” I call that high performance. 🙌\nWhat’s the toughest feedback you’ve ever received? Tell me in the comments 👇\nFollow me for more thoughts on scarcity, strategy and sustained dryness. 🔔\n♻️ Repost if this resonated.",
+   title:"I Got Fired by a Reservoir. Here’s What It Taught Me. 💧",
+   text:"Best thing that ever happened to me. 🧵\n1️⃣ The cup is half-empty. Then a quarter-empty. Then, well.\n2️⃣ Where others see a shortage, I see a market.\n3️⃣ Stay humble. Stay hydrated. (Do as I say, not as I do.)\n4️⃣ Great drought isn’t built overnight.\nThe reservoir said I’d “taken everything from the team.” I call that high performance. 🙌\n♻️ Repost if this resonated.",
   tags:["Leadership","Resilience","Mindset","ThoughtLeadership","Motivation","CareerAdvice","Hustle"],
   th:[
    {p:"sa",t:"Number 4 is gold. Patience pays off. I should know, I’ve been blowing through here for years. 🌬️",l:1288,w:"5d"},
    {p:"vc",t:"This post really hit a nerve. Saved. 🌋",l:541,w:"5d"},
    {p:"wild",t:"Fired by a reservoir? Their loss. Let’s connect on a joint venture. I’ll bring the spark, you bring the dryness. 🔥",l:2019,w:"5d"}]},
  {id:"eq5",by:"eq",t:"2h",follow:1,rx:["like"],likes:2,cm:1,rp:0,
-  text:"My latest leadership lesson: follow through 🤝\nA magnitude 3.0 event was recorded 40 km NNW of Lake Minchumina, Alaska, after the earlier magnitude 5.6 earthquake in the area.\nA reminder that strong stakeholder engagement does not end after launch. Sometimes the follow-up is the whole strategy.",
+   title:"Lesson of the Day: Always Follow Through 🤝",
+   text:"A magnitude 3.0, 40 km NNW of Lake Minchumina, Alaska, right after my earlier 5.6.\nStakeholder engagement doesn’t end at launch. Sometimes the follow-up is the whole strategy.",
   tags:["Earthquake","FollowUp","Alaska"],src:"USGS event details · Alaska · Fictional satire commentary; no damage or casualty claims.",
   th:[{p:"af",t:"Following up is my whole job. Thanks for the shout-out! 🙌",l:7,w:"1h"}]},
  {id:"eq6",by:"eq",t:"9h",follow:1,rx:["like"],likes:1,cm:0,rp:0,
-  text:"Small wins deserve recognition too 📈\nA magnitude 3.1 earthquake was recorded 7 km NW of The Geysers, California, at a depth of 2.5 km.\nIt may not make headlines, but consistency matters. Celebrating every little breakthrough on the path to long-term disruption.",
+   title:"Small Wins Count Too 📈",
+   text:"A magnitude 3.1, 7 km NW of The Geysers, California, 2.5 km deep.\nIt won’t make headlines, but consistency matters.",
   tags:["Earthquake","SmallWins","Consistency"],src:"USGS event details · California · Fictional satire commentary; no damage or casualty claims.",th:[]},
 ];
 const SUG=["wild","tye","tsu","eq","hh"];
@@ -486,7 +502,8 @@ function postHTML(o){
  return `<article class="card post" id="post-${o.id}">
  <div class="p-head">${avatar(o.by)}<div class="p-who">${nameBtn(o.by,"nm")}${p.you?' <span>• You</span>':' <span>• '+p.deg+'</span>'}</button><small>${esc(p.h)}</small><small>${esc(o.t)} • 🌐</small></div>
  <div class="p-tools">${fol?`<button type="button" class="follow" data-follow="${o.by}">+ Follow</button>`:""}<button type="button" class="icon-btn" data-act="postmenu:${o.id}" data-pop aria-label="More options">•••</button><button type="button" class="icon-btn" data-hide="${o.id}" aria-label="Hide post">✕</button></div></div>
- <div class="p-text${long&&!ex?" clamp":""}">${esc(o.text)}${(!long||ex)?`${o.tags.length?`<br><span class="p-tags">${o.tags.map(g=>`<button type="button" data-act="tag:${g}">#${g}</button>`).join("")}</span>`:""}`:""}</div>
+ <div class="p-text${long&&!ex?" clamp":""}">${o.title?`<strong class="p-title">${esc(o.title)}</strong>
+`:""}${esc(o.text)}${(!long||ex)?`${o.tags.length?`<br><span class="p-tags">${o.tags.map(g=>`<button type="button" data-act="tag:${g}">#${g}</button>`).join("")}</span>`:""}`:""}</div>
  ${long&&!ex?`<button type="button" class="p-more" data-more="${o.id}">…more</button>`:""}
  ${o.src?`<div class="p-src">${esc(o.src)}</div>`:""}
  ${o.img?`<img class="p-img${o.tall?" tall":""}" src="${imgSrc(o.img)}" alt="">`:""}
@@ -500,7 +517,7 @@ function postHTML(o){
 function feedHTML(){
  if(!$("#feed"))return;
  const q=($("#q").dataset.f||"").replace(/^#/,"");
- const list=POSTS.filter(o=>!st.hidden||!st.hidden.has(o.id)).filter(o=>!q||(o.text+PPL[o.by].n+PPL[o.by].h+o.tags.join(" ")).toLowerCase().includes(q));
+ const list=POSTS.filter(o=>!st.hidden||!st.hidden.has(o.id)).filter(o=>!q||((o.title||"")+o.text+PPL[o.by].n+PPL[o.by].h+o.tags.join(" ")).toLowerCase().includes(q));
  if(st.sort==="recent")list.sort((a,b)=>ageMin(a.t)-ageMin(b.t));
  $("#feed").innerHTML=list.length?list.map(postHTML).join(""):`<div class="card" style="padding:28px;text-align:center;color:var(--fg2)">No posts match “${esc(q)}”.</div>`;
 }
@@ -611,10 +628,10 @@ function composer(mode,pre){
 }
 function publish(){
  const t=($("#comp-t")||{}).value||"",ti=($("#comp-title")||{}).value||"";
- const txt=(ti?ti+"\n":"")+t.trim();
- if(!txt.trim()&&!st.pendingImg){toast("Write something first.");return}
+ const txt=t.trim();
+ if(!txt&&!ti.trim()&&!st.pendingImg){toast("Write something first.");return}
  const tags=(txt.match(/#(\w+)/g)||[]).map(x=>x.slice(1));
- POSTS.unshift({id:"u"+(++st.n),by:"ought",t:"Now",rx:["like"],likes:0,cm:0,rp:0,text:txt.replace(/\s*#\w+/g,"").trim()||" ",tags,th:[],img:st.pendingImg||null,tall:1});
+ POSTS.unshift({id:"u"+(++st.n),by:"ought",t:"Now",rx:["like"],likes:0,cm:0,rp:0,title:ti.trim()||undefined,text:txt.replace(/\s*#\w+/g,"").trim()||" ",tags,th:[],img:st.pendingImg||null,tall:1});
  st.pendingImg=null;st.sort="top";closeModal();go("home");window.scrollTo({top:0});toast("Post published.");
 }
 
@@ -711,7 +728,7 @@ function personModal(id){
 }
 function sendModal(id){
  const o=POSTS.find(x=>x.id===id);
- modal("Send post",`<p class="sub" style="color:var(--fg2);margin-top:0">${esc(o.text.split("\n")[0].slice(0,90))}</p>`+Object.keys(PPL).filter(k=>k!=="ought").map(k=>row(k,`<button type="button" class="btn-s" data-act="sendto:${k}">Send</button>`)).join(""));
+ modal("Send post",`<p class="sub" style="color:var(--fg2);margin-top:0">${esc(head(o).slice(0,90))}</p>`+Object.keys(PPL).filter(k=>k!=="ought").map(k=>row(k,`<button type="button" class="btn-s" data-act="sendto:${k}">Send</button>`)).join(""));
 }
 function reactModal(id){
  const o=POSTS.find(x=>x.id===id),ppl=Object.keys(PPL).filter(k=>k!=="ought"&&k!==o.by);
@@ -723,14 +740,14 @@ function listModal(title,items,kind,btn,done){
 function analytics(){
  const mine=POSTS.filter(o=>o.by==="ought"&&!o.id.startsWith("u"));const mx=Math.max(...mine.map(o=>o.likes));
  modal("Analytics",`<div class="stats3"><div><b>3,610,447</b><small>Profile views</small></div><div><b>21,908,230</b><small>Post impressions</small></div><div><b>874,512</b><small>Search appearances</small></div></div>
- <h2 style="font-size:16px;margin:12px 0 0">Your posts</h2><div class="bars">${mine.map(o=>`<div class="bar"><span>${esc(o.text.split("\n")[0].slice(0,70))}</span><i style="width:${Math.max(4,o.likes/mx*100)}%"></i><em>${fmt(o.likes)} reactions</em></div>`).join("")}</div>`,null,"wide");
+ <h2 style="font-size:16px;margin:12px 0 0">Your posts</h2><div class="bars">${mine.map(o=>`<div class="bar"><span>${esc(head(o).slice(0,70))}</span><i style="width:${Math.max(4,o.likes/mx*100)}%"></i><em>${fmt(o.likes)} reactions</em></div>`).join("")}</div>`,null,"wide");
 }
 function viewers(){
  modal("Who viewed your profile",["fa","ia","wild","sa","vc","tye"].map((k,i)=>row(k,`<small style="color:var(--fg2)">${["2h","5h","1d","1d","2d","3d"][i]}</small>`)).join("")+`<p class="sub" style="color:var(--fg2)">Mostly farmers, as always.</p>`,`<button type="button" class="btn-s" data-act="analytics">View all analytics</button>`);
 }
 function savedModal(){
  const l=POSTS.filter(o=>st.saved.has(o.id));
- modal("Saved items",l.length?l.map(o=>`<div class="rowi">${avatar(o.by)}<button type="button" class="open" data-act="showpost:${o.id}"><span class="tx"><b>${esc(PPL[o.by].n)}</b><small>${esc(o.text.split("\n")[0].slice(0,110))}</small></span></button><div class="go"><button type="button" class="btn-g" data-act="save:${o.id}:rm">Remove</button></div></div>`).join(""):`<p style="color:var(--fg2);line-height:1.6">Nothing saved yet. Open the ••• menu on any post and choose Save.</p>`);
+ modal("Saved items",l.length?l.map(o=>`<div class="rowi">${avatar(o.by)}<button type="button" class="open" data-act="showpost:${o.id}"><span class="tx"><b>${esc(PPL[o.by].n)}</b><small>${esc(head(o).slice(0,110))}</small></span></button><div class="go"><button type="button" class="btn-g" data-act="save:${o.id}:rm">Remove</button></div></div>`).join(""):`<p style="color:var(--fg2);line-height:1.6">Nothing saved yet. Open the ••• menu on any post and choose Save.</p>`);
 }
 function discover(){
  modal("Discover more",`<div class="link-rows"><button type="button" class="nrow" data-act="groups"><span>Groups</span><span>›</span></button><button type="button" class="nrow" data-act="events"><span>Events</span><span>›</span></button><button type="button" class="nrow" data-act="newsletters"><span>Newsletters</span><span>›</span></button><button type="button" class="nrow" data-act="tag:DoingMoreWithLess"><span>#DoingMoreWithLess</span><span>›</span></button><button type="button" class="nrow" data-act="tag:Earthquake"><span>#Earthquake</span><span>›</span></button><button type="button" class="nrow" data-act="tag:Drought"><span>#Drought</span><span>›</span></button></div>`);
@@ -772,7 +789,7 @@ const ACT={
  report(id){toast("Thanks. We’ll review this post.")},
  repost(id,b){pop(b,`<button type="button" class="mi" data-act="doRepost:${id}">↻ Repost<small>Instantly bring this post to others’ feeds</small></button><button type="button" class="mi" data-act="quote:${id}">✎ Repost with your thoughts<small>Create a new post with this one attached</small></button>`)},
  doRepost(id){const o=POSTS.find(x=>x.id===id);o.rp++;keep(feedHTML);toast("Reposted.")},
- quote(id){const o=POSTS.find(x=>x.id===id);composer("post","\n\n— reposting "+PPL[o.by].n+": “"+o.text.split("\n")[0].slice(0,100)+"”")},
+ quote(id){const o=POSTS.find(x=>x.id===id);composer("post","\n\n— reposting "+PPL[o.by].n+": “"+head(o).slice(0,100)+"”")},
  send(id){sendModal(id)},
  sendto(k){toast("Sent to "+PPL[k].n+".")},
  react(id){reactModal(id)},
