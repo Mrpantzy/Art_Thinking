@@ -150,6 +150,11 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .news li small{display:block;color:var(--fg2);font-size:12px}
 .news .show{display:block;padding:8px 12px 4px;font-weight:600;color:var(--fg2)}
 .news .show:hover{color:var(--fg)}
+.qr-c{display:flex;gap:12px;align-items:center;padding:12px;margin-bottom:8px}
+.qr-c img{flex:none;border-radius:4px;background:#fff;padding:3px}
+.qr-c b{display:block;font-size:14px}
+.qr-c small{color:var(--fg2);font-size:12px}
+.qr-c:hover b{color:var(--blue);text-decoration:underline}
 .feed-c{padding:12px 12px 8px}
 .feed-c h3{font-size:16px;font-weight:600;margin:0 0 8px}
 .feed-c li{list-style:none;display:flex;gap:8px;padding:6px 0;align-items:flex-start}
@@ -342,6 +347,7 @@ button.rx:hover span:last-child{text-decoration:underline;color:var(--blue)}
       </ul>
       <button type="button" class="show" data-act="newsmore">Show more ▾</button>
     </section>
+    <a class="card qr-c" href="qr.html"><img src="qr.svg" alt="" width="64" height="64"><span><b>Open on your phone</b><small>Scan the QR code to share the network</small></span></a>
     <section class="card feed-c"><h3>Add to your feed</h3><ul id="sug"></ul><button type="button" class="more" data-act="view:network">View all recommendations →</button></section>
     <div class="rfoot"><div class="l"><button type="button" data-act="info:About">About</button><button type="button" data-act="info:Accessibility">Accessibility</button><button type="button" data-act="info:Help Center">Help Center</button><button type="button" data-act="info:Privacy & Terms">Privacy &amp; Terms ▾</button><button type="button" data-act="info:Ad Choices">Ad Choices</button><button type="button" data-act="info:Advertising">Advertising</button><button type="button" data-act="info:Business Services">Business Services ▾</button></div><b>in</b> <b>LinkedIn</b> Corporation © 2026 · Satire art project</div>
   </aside>
@@ -762,7 +768,7 @@ const ACT={
  close(){closeModal()},
  view(v){go(v)},
  meMenu(x,b){pop(b,`<div class="mh"><div style="display:flex;gap:10px"><img src="${IMG.ought}" alt="" style="width:56px;height:56px;border-radius:50%;object-fit:cover"><div><b>Dr. Ought</b><div style="font-size:12px;color:var(--fg2);line-height:1.3">Senior Resource Reduction Lead at Horn of Africa Region</div></div></div><button type="button" class="btn-s" style="width:100%;margin-top:10px" data-open="dr-ought">View profile</button></div>
-  <div class="mt">Account</div><button type="button" class="mi" data-act="premium">Try Premium for free</button><button type="button" class="mi" data-act="info:Settings & Privacy">Settings &amp; Privacy</button><button type="button" class="mi" data-act="info:Help">Help</button><button type="button" class="mi" data-act="info:Language">Language</button>
+  <div class="mt">Account</div><a class="mi" href="qr.html">📱 Share via QR code</a><button type="button" class="mi" data-act="premium">Try Premium for free</button><button type="button" class="mi" data-act="info:Settings & Privacy">Settings &amp; Privacy</button><button type="button" class="mi" data-act="info:Help">Help</button><button type="button" class="mi" data-act="info:Language">Language</button>
   <div class="mt">Manage</div><button type="button" class="mi" data-act="info:Posts & Activity">Posts &amp; Activity</button><button type="button" class="mi" data-act="saved">Saved items</button><button type="button" class="mi" data-act="viewers">Profile viewers</button><button type="button" class="mi" data-act="groups">Groups</button><button type="button" class="mi" data-act="newsletters">Newsletters</button><button type="button" class="mi" data-act="events">Events</button><button type="button" class="mi" data-act="biz">For Business</button><button type="button" class="mi" data-act="info:Sign out">Sign out</button>`)},
  biz(x,b){pop(b||$("#nav-biz"),`<div class="mt">Visit more LinkedIn products</div><div class="grid">${["Talent Solutions","Sales Solutions","Post a job","Marketing Solutions","Learning Solutions","Admin Center","Advertise","Business Services"].map(s=>`<button type="button" class="mi" data-act="info:${s}">${s}</button>`).join("")}</div>`)},
  info(x){info(x)},

@@ -186,6 +186,11 @@ header{height:76px!important;background:#fff!important;border-bottom:1px solid #
 .avwrap{position:relative;display:block;width:154px;margin-top:-88px}.avwrap .avatar{display:block;margin-top:0}
 .avbadge{position:absolute;right:2px;bottom:6px;width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#ff9a1f,#e8340f 55%,#a80f1f);border:3px solid #fff;display:grid;place-items:center}
 </style>
+<style id="phone-fit">
+/* Phone fit: keep every profile inside the screen width. */
+@media(max-width:850px){.page,.activity-layout{grid-template-columns:minmax(0,1fr)!important}.page>*,.activity-layout>*,main,section,.card{min-width:0;max-width:100%}}
+@media(max-width:600px){main{padding:16px!important}.page{margin:8px!important}.cover{max-width:100%}h1{font-size:24px!important;flex-wrap:wrap}.headline{font-size:16px!important}.feat{grid-template-columns:minmax(0,1fr)!important;display:grid}.actions,.btnrow,.openrow{flex-wrap:wrap}body{overflow-x:hidden}img{max-width:100%}p,div,h3,b,span{overflow-wrap:anywhere}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>

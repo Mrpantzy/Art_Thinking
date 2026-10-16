@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Disaster Networking QR</title>
+<meta name="description" content="Scan to open Disaster Networking, a satirical LinkedIn for natural disasters.">
+<style>
+/* QR page: one card, sized for phones first; the code stays square and as large as the screen allows. */
+:root{--bg:#f4f2ee;--card:#fff;--fg:rgba(0,0,0,.9);--fg2:rgba(0,0,0,.6);--blue:#0a66c2;--blue-d:#004182;--warn:#fff3cd;--warn-line:#e7cf86;--warn-ink:#5b4a10}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1b1f23;--fg:rgba(255,255,255,.9);--fg2:rgba(255,255,255,.6);--blue:#71b7fb;--blue-d:#a8d2fd;--warn:#3a321a;--warn-line:#6b5a22;--warn-ink:#f0e2b0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--card:#1b1f23;--fg:rgba(255,255,255,.9);--fg2:rgba(255,255,255,.6);--blue:#71b7fb;--blue-d:#a8d2fd;--warn:#3a321a;--warn-line:#6b5a22;--warn-ink:#f0e2b0;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.notice{background:var(--warn);color:var(--warn-ink);border-bottom:1px solid var(--warn-line);text-align:center;font-size:12px;padding:5px 16px}
+main{flex:1;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left)) calc(24px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right))}
+.card{background:var(--card);border-radius:12px;box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:28px 24px;width:100%;max-width:420px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:20px}
+.logo{width:34px;height:34px;border-radius:4px;background:#0a66c2;color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;font-family:Arial,sans-serif}
+.sub{color:var(--fg2);margin:8px 0 20px;font-size:15px}
+.qr{display:block;width:min(100%,320px);aspect-ratio:1;margin:0 auto;border-radius:8px;background:#fff;padding:8px}
+.url{margin:16px 0 0;font-size:15px;font-weight:600;word-break:break-all}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.btn{display:block;border-radius:999px;padding:12px 16px;font-weight:600;font-size:16px;text-decoration:none}
+.btn.primary{background:var(--blue);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#000}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#000}}
+.btn.ghost{border:1px solid var(--blue);color:var(--blue)}
+.btn:hover{filter:brightness(.95)}
+.hint{color:var(--fg2);font-size:13px;margin:16px 0 0}
+</style>
+</head>
+<body>
+<div class="notice">Satire art project: fictional LinkedIn profiles of natural disasters.</div>
+<main>
+  <section class="card">
+    <div class="brand"><span class="logo">in</span>Disaster Networking</div>
+    <p class="sub">Point your phone camera at the code to join the network.</p>
+    <img class="qr" src="qr.svg" alt="QR code linking to disaster-networking.vercel.app" width="320" height="320">
+    <p class="url">disaster-networking.vercel.app</p>
+    <div class="btns">
+      <a class="btn primary" href="/">Open the site</a>
+      <a class="btn ghost" href="qr.png" download="disaster-networking-qr.png">Download QR for print</a>
+    </div>
+    <p class="hint">Works on any phone camera. No account or app needed.</p>
+  </section>
+</main>
+</body>
+</html>
