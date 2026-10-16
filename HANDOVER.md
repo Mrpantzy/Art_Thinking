@@ -74,7 +74,7 @@ A Playwright run clicked about 35 controls (all nav pages, menus, composer, save
 
 ## Showcase video
 
-A 60 s 1080p showcase MP4 (feed, Congratulate Earth Quake, Dr. Ought profile, QR outro) is for the team to use separately. It is deliberately not in this repo or on the site.
+A 60 s 1080p showcase MP4 (feed, Congratulate Earth Quake, Dr. Ought profile, QR outro) is for the team to use separately. The MP4 itself is deliberately not in this repo or on the site. How to make or change it: `video/VIDEO_HANDOVER.md` (the `video/` folder is excluded from Vercel by `.vercelignore`).
 
 ## Ideas the user may want next
 
