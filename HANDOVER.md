@@ -14,7 +14,7 @@ Every person, company, number and quote on the site is fictional satire. Real ev
 | Git link | Vercel project is connected to the repo. A push to `main` redeploys to production on its own. |
 | Preview copy | claude.ai artifact `https://claude.ai/artifact/VdoqAGenH5qdMKJmwun8vy` (private, slightly older wrapper; the repo is the source of truth) |
 
-Vercel Authentication is on (default), so visitors are asked to log in to Vercel. Turning it off is a user decision, so ask first.
+The production URL is public (no Vercel login), so the QR code works for anyone.
 
 ## Repo layout
 
@@ -26,6 +26,7 @@ profiles/
   tsu-nami.html
   tye-phoon.html
   earth-quake.html
+qr.html           Phone-friendly QR page (/qr) for the live site; qr.svg + qr.png (print)
 vercel.json       { "cleanUrls": true }
 HANDOVER.md       This file
 ```
@@ -42,8 +43,10 @@ Single file, around 820 lines plus long base64 lines. Vanilla JS. Open it in a b
 - `IMG`: base64 JPEGs (avatars, Dr. Ought cover, Somalia/England post images, Earth Quake post image). `imgSrc(k)` also accepts a raw `data:` URL for user-uploaded photos.
 - `PPL`: people. Fields `n` name, `h` headline, `img` key (or `c` colour for an initials avatar), `prof` profile slug, `deg`, `you`. People without `prof` open a small person card instead of a profile.
 - `PROF`: slug to display name for the profile viewer.
-- `POSTS`: feed posts. Fields `id`, `by`, `t` (relative time text), `text`, `tags`, `img`, `src` caption, `rx`, `likes`, `cm`, `rp`, and `th` (comment thread; each comment has `p`, `t`, `l`, `w` and optional `re` replies).
-- `JOBS`, `NOTIFS`, `MSG0`/`REPLY`, `GROUPS`, `NEWSL`, `EVENTS`, `INFO`: content for the secondary pages and modals.
+- `BIO`: every character's job, school and follower count, merged into `PPL` and shown on person cards. Keep follower counts identical to the profile pages (Dr. Ought 1,203,884 · Wild Fire 2,847,319 · Tsu Nami 1,874,206 · Earth Quake 1,562,903 · Tye Phoon 968,431).
+- `POSTS`: feed posts. Fields `id`, `by`, `t` (relative time text), `title` (bold catchy title), `text` (keep it short), `tags`, `img`, `src` caption, `rx`, `likes`, `cm`, `rp`, and `th` (comment thread; each comment has `p`, `t`, `l`, `w` and optional `re` replies).
+- `JOBS`: detailed job objects (salary, workplace, level, applicants, hiring manager `hire`, responsibilities, requirements, perks, skills match, company). `jobs()` renders the search/list; `jobDetail(i)` the full job view.
+- `NOTIFS`, `MSG0`/`REPLY`, `GROUPS`, `NEWSL`, `EVENTS`, `INFO`: content for the secondary pages and modals.
 
 **State:** one object `st` (liked, saved, open comment threads, connections, view, sort, messages, and so on). Nothing is persisted. A reload resets everything, including posts the user writes.
 
@@ -68,6 +71,10 @@ A Playwright run clicked about 35 controls (all nav pages, menus, composer, save
 - The hub's profile viewer loads `profiles/<slug>.html` in an iframe (relative path). Keep that folder layout when moving files.
 - Images are base64 inside `index.html`. Editing the file with tools that choke on very long lines can be painful. Prefer search/replace on distinctive strings or a small script.
 - The original build used a scratch template plus a Python patch step, which no longer exists. `index.html` in the repo is the only source now.
+
+## Showcase video
+
+A 60 s 1080p showcase MP4 (feed, Congratulate Earth Quake, Dr. Ought profile, QR outro) is for the team to use separately. It is deliberately not in this repo or on the site.
 
 ## Ideas the user may want next
 
